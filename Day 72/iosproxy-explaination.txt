@@ -1,0 +1,20 @@
+Mark monitor (NS1 servers) based domain names --> R53 --> Squid, light-tpd, fluentd
+
+squid = act as a forwd proxy
+light-tpd= web server
+fluentd =  push logs (port, access, httpd) to s3
+
+port = all panelist traffic comes in (10000-47k) is routed to 3128 (squid port)
+fluentd push port logs to s3 (30 MB or 1hr)
+
+httpd(light-tpd) = fluentd push port logs to s3 (30 MB or 1hr)
+access (squid) = fluentd push port logs to s3 (30 MB or 1hr)
+
+lambda = ip is removed from r53 and replace
+
+netflix.com
+
+squid --> NS1 servers --> Luminati server (datacenter IP, residential IP) --> netflix.com
+
+daily once data pipeline
+
