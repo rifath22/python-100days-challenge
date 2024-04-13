@@ -1,1 +1,1 @@
-# python-100days-challenge
+# 100-days-python-challenge
