@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "38eab37b-bff1-475b-a335-a50c3abe311d",
+		"name": "Python",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cafe & Wifi",
+			"item": [
+				{
+					"name": "Search Cafes By Location",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/search?loc=Peckham",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "loc",
+									"value": "Peckham"
+								}
+							]
+						},
+						"description": "The /search route will search the cafe database for a cafe that matches the location queried. Use the loc parameter to pass a location name."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Random Cafe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/random",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"random"
+							]
+						},
+						"description": "Returns a random cafe from the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Cafes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/all",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"all"
+							]
+						},
+						"description": "This route returns a json with the data from all cafes in the database."
+					},
+					"response": []
+				},
+				{
+					"name": "Create new Cafe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "can_take_calls",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "coffee_price",
+									"value": "£3.00",
+									"type": "text"
+								},
+								{
+									"key": "has_sockets",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "has_toilet",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "has_wifi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "img_url",
+									"value": "https://lh3.googleusercontent.com/p/AF1QipP_NbZH7A1fIQyp5pRm1jOGwzKsDWewaxka6vDt=s0",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Shoreditch",
+									"type": "text"
+								},
+								{
+									"key": "map_url",
+									"value": "https://g.page/acehotellondon?share",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Postman Cafe",
+									"type": "text"
+								},
+								{
+									"key": "seats",
+									"value": "50+",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "22",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/add",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add"
+							]
+						},
+						"description": "Adds a new cafe entry to the database. Requires authentication with api-key parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Price",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/update-price/22?new_price=£3.80",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"update-price",
+								"22"
+							],
+							"query": [
+								{
+									"key": "new_price",
+									"value": "£3.80"
+								}
+							]
+						},
+						"description": "Update the price of a black coffee at a particular cafe. Using the id and new_price parameters."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the Cafe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/report-closed/22?api-key=TopSecretAPIKey",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report-closed",
+								"22"
+							],
+							"query": [
+								{
+									"key": "api-key",
+									"value": "TopSecretAPIKey"
+								}
+							]
+						},
+						"description": "Deletes a cafe from the database. You will need to provide the id of the cafe to delete as a route. You will also need to provide a valid API for this operation to be allowed."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
